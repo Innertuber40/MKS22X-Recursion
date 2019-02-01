@@ -1,4 +1,4 @@
-import Java.Math;
+import java.lang.Math;
 
 public class Recursion {
     public static double sqrt(double n, double tolerance) {
@@ -18,7 +18,7 @@ public class Recursion {
     }
 
     public static int fib(int n) {
-        return fibber(n, 0, sum);
+        return fibber(n, 0, 0);
     }
     public static int fibber(int n, int place, int sum) {
         if (place == n) {
@@ -39,5 +39,6 @@ public class Recursion {
         } catch (IllegalArgumentException e) {
             System.out.println(e);
         }
+        System.out.println(fib(0));
     }
 }
