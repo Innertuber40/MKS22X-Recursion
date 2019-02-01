@@ -18,13 +18,13 @@ public class Recursion {
     }
 
     public static int fib(int n) {
-        return fibber(n, 0, 0);
+        return fibber(n, 0, 1);
     }
-    public static int fibber(int n, int place, int sum) {
-        if (place == n) {
-            return sum;
+    public static int fibber(int n, int oneB, int twoB) {
+        if (n < 2) {
+            return oneB + twoB;
         }
-        return fibber(n, place + 1, sum + place);
+        return fibber(n - 1, twoB, oneB + twoB);
     }
 
 
@@ -40,5 +40,11 @@ public class Recursion {
             System.out.println(e);
         }
         System.out.println(fib(0));
+        System.out.println(fib(1));
+        System.out.println(fib(2));
+        System.out.println(fib(3));
+        System.out.println(fib(4));
+        System.out.println(fib(5));
+        System.out.println(fib(40));
     }
 }
