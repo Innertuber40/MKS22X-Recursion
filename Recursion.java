@@ -18,7 +18,13 @@ public class Recursion {
     }
 
     public static int fib(int n) {
-        
+        return fibber(n, 0, sum);
+    }
+    public static int fibber(int n, int place, int sum) {
+        if (place == n) {
+            return sum;
+        }
+        return fibber(n, place + 1, sum + place);
     }
 
 
