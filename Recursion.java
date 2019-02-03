@@ -1,4 +1,5 @@
 import java.lang.Math;
+import java.util.ArrayList;
 
 public class Recursion {
     public static double sqrt(double n, double tolerance) {
@@ -27,6 +28,18 @@ public class Recursion {
         return fibber(n - 1, twoB, oneB + twoB);
     }
 
+    public static ArrayList<Integer> makeAllSums(int n) {
+        ArrayList<Integer> returns = new ArrayList<Integer>(n);
+        returns.add(0);
+        return allSums(n, returns, 0);
+    }
+    public static ArrayList<Integer> allSums(int n, ArrayList<Integer> returns, int sum) {
+        if (n == 0) {
+            return returns;
+        }
+        
+    }
+
 
     public static void main(String[] args) {
         System.out.println(sqrt(0, 0.000001));
@@ -46,5 +59,6 @@ public class Recursion {
         System.out.println(fib(4));
         System.out.println(fib(5));
         System.out.println(fib(40));
+        System.out.println(makeAllSums(3));
     }
 }
