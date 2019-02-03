@@ -21,8 +21,8 @@ public class Recursion {
         return fibber(n, 0, 1);
     }
     public static int fibber(int n, int oneB, int twoB) {
-        if (n < 2) {
-            return oneB + twoB;
+        if (n == 0) {
+            return oneB;
         }
         return fibber(n - 1, twoB, oneB + twoB);
     }
