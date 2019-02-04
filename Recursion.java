@@ -3,6 +3,9 @@ import java.lang.Math;
 import java.util.ArrayList;
 
 public class Recursion {
+    // to make the javadoc better
+    private Recursion(){}
+
     /**
      * Finds the square root of a given number by constantly bringing a guess of one closer and closer to the actual square root
      * by changing the guess to the average of the guess and the quotient of the original number and that guess, within
@@ -29,7 +32,7 @@ public class Recursion {
     }
 
     /**
-     * Displays the value of the Fibonacci at a specified index
+     * Displays the value of the Fibonacci sequence at a specified index
      * @param n The index of the Fibonacci number desired
      * @return The value of the Fibonacci sequence at n
      */
@@ -62,7 +65,10 @@ public class Recursion {
         return allSums(n-1, returns, sum);
     }
 
-
+    /**
+     * The main method; runs when the program is run, for testing
+     * @param args Arguments that can be passed into the main at the command line, to no avail in this case
+     */
     public static void main(String[] args) {
         System.out.println(sqrt(0, 0.000001));
         System.out.println(sqrt(1, 0.000001));
