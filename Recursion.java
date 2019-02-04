@@ -30,14 +30,15 @@ public class Recursion {
 
     public static ArrayList<Integer> makeAllSums(int n) {
         ArrayList<Integer> returns = new ArrayList<Integer>(n);
-        returns.add(0);
         return allSums(n, returns, 0);
     }
     public static ArrayList<Integer> allSums(int n, ArrayList<Integer> returns, int sum) {
         if (n == 0) {
+            returns.add(sum);
             return returns;
         }
-        
+        allSums(n - 1, returns, sum + n);
+        return allSums(n-1, returns, sum);
     }
 
 
@@ -60,5 +61,9 @@ public class Recursion {
         System.out.println(fib(5));
         System.out.println(fib(40));
         System.out.println(makeAllSums(3));
+        System.out.println(makeAllSums(6));
+        System.out.println(makeAllSums(0));
+        System.out.println(makeAllSums(2));
+        System.out.println(makeAllSums(1));
     }
 }
