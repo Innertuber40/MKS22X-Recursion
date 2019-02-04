@@ -48,21 +48,28 @@ public class Recursion {
 
     /**
      * Returns an ArrayList containing all the possible sums that can be made using any combination of the values
-     * 1 to a given value.
+     * 1 to a given value (works on negatives).
      * @param n The number furthest from 0 that you can add to the sum
      * @return An ArrayList containing all possible sums
      */
     public static ArrayList<Integer> makeAllSums(int n) {
-        ArrayList<Integer> returns = new ArrayList<Integer>(n);
+        ArrayList<Integer> returns = new ArrayList<Integer>();
         return allSums(n, returns, 0);
     }
     private static ArrayList<Integer> allSums(int n, ArrayList<Integer> returns, int sum) {
+        int direction = -1;
+        if (n < 0) {
+            direction = 1;
+        }
         if (n == 0) {
             returns.add(sum);
+            if (returns.get(0) < 0) {
+                returns.add(sum + 1);
+            }
             return returns;
         }
-        allSums(n - 1, returns, sum + n);
-        return allSums(n-1, returns, sum);
+        allSums(n + direction, returns, sum + n);
+        return allSums(n + direction, returns, sum);
     }
 
     /**
@@ -92,5 +99,7 @@ public class Recursion {
         System.out.println(makeAllSums(0));
         System.out.println(makeAllSums(2));
         System.out.println(makeAllSums(1));
+        System.out.println(makeAllSums(-1));
+        System.out.println(makeAllSums(-3));
     }
 }
