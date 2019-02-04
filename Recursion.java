@@ -1,7 +1,17 @@
+// Math for the absolute value function and ArrayList because it is absolutely necessary
 import java.lang.Math;
 import java.util.ArrayList;
 
 public class Recursion {
+    /**
+     * Finds the square root of a given number by constantly bringing a guess of one closer and closer to the actual square root
+     * by changing the guess to the average of the guess and the quotient of the original number and that guess, within
+     * a specified range of error.
+     * @param n The number to be square-rooted
+     * @param tolerance The percent error allowed for the calculation
+     * @return The square root of the input
+     * @throws IllegalArgumentException If the number entered is negative, and thus can't be used
+     */
     public static double sqrt(double n, double tolerance) {
         if (n == 0.0) {
             return 0;
@@ -11,28 +21,39 @@ public class Recursion {
         }
         return sqrtCompare(n, 1.0, tolerance / 100.0);
     }
-    public static double sqrtCompare(double n, double g, double t) {
+    private static double sqrtCompare(double n, double g, double t) {
         if (Math.abs(n - g*g) / n <= t) {
             return g;
         }
         return sqrtCompare(n, (n/g + g) / 2, t);
     }
 
+    /**
+     * Displays the value of the Fibonacci at a specified index
+     * @param n The index of the Fibonacci number desired
+     * @return The value of the Fibonacci sequence at n
+     */
     public static int fib(int n) {
         return fibber(n, 0, 1);
     }
-    public static int fibber(int n, int oneB, int twoB) {
+    private static int fibber(int n, int oneB, int twoB) {
         if (n == 0) {
             return oneB;
         }
         return fibber(n - 1, twoB, oneB + twoB);
     }
 
+    /**
+     * Returns an ArrayList containing all the possible sums that can be made using any combination of the values
+     * 1 to a given value.
+     * @param n The number furthest from 0 that you can add to the sum
+     * @return An ArrayList containing all possible sums
+     */
     public static ArrayList<Integer> makeAllSums(int n) {
         ArrayList<Integer> returns = new ArrayList<Integer>(n);
         return allSums(n, returns, 0);
     }
-    public static ArrayList<Integer> allSums(int n, ArrayList<Integer> returns, int sum) {
+    private static ArrayList<Integer> allSums(int n, ArrayList<Integer> returns, int sum) {
         if (n == 0) {
             returns.add(sum);
             return returns;
